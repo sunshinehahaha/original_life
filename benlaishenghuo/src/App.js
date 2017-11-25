@@ -1,27 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import './sass/test.css';
+import Footer from './components/others/footer.js';
+
+import Home from './components/home/home.js';
+import Classify from './components/classify/classify.js';
+import Cart from './components/cart/cart.js';
+import My from './components/my/my.js';
+import './components/others/sass/footer.css';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink,
+  Redirect,
+} from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-
-        <div id="navbar">
-          <ul>
-            <li><a href="#">test</a></li>
-          </ul>
+      <Router>
+        <div className="App">
+          <Route  path="/home" component={Home}/>
+          <Route  path="/classify" component={Classify}/>
+          <Route  path="/cart" component={Cart}/>
+          <Route  path="/my" component={My}/>
+          <Footer/>
         </div>
-
-      </div>
+      </Router>
     );
   }
 }
