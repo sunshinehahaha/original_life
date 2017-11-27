@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import './home.css';
-
+import Header from '../others/header.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -8,10 +8,8 @@ import {
   NavLink,
   Redirect,
 } from 'react-router-dom';
-
-import Header from '../others/header.js';
-
-
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
+import {Button} from 'antd';
 
 class Home extends Component{
 	render (){
@@ -19,10 +17,6 @@ class Home extends Component{
 			<div id = "home">
 				<header className = "home_header">
 					<Header/>
-					
-					<div className = "home_header_login">
-						<i className ="iconfont">&#xe502;</i>
-					</div>
 				</header>
 				<nav className = "home_nav">
 					<ul>
@@ -58,7 +52,9 @@ class Home extends Component{
 						</li>
 					</ul>
 				</nav>
-				<div className = "home_slider"></div>
+				<div className = "home_slider">
+					
+				</div>
 				<main className = "home_list"></main>
 			</div>
 		)
