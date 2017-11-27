@@ -27,7 +27,7 @@ export default class Footer extends Component{
 			        <li>
 			        	<NavLink activeClassName="haha" to="/#">
 			        		<i class="iconfont">&#xe61c;</i>
-			        		<span>充值</span>
+			        		<span>充值充值充值充值</span>
 			        	</NavLink>
 			        </li>
 			        <li>

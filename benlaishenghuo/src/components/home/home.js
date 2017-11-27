@@ -8,7 +8,7 @@ class Home extends Component{
 			<div id = "home">
 				<header className = "home_header">
 					<div className = "home_header_pos">
-						大连
+						beijing 
 					</div>
 					<div className = "home_header_ipt">
 
