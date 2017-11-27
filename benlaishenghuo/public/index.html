@@ -38,11 +38,13 @@
     </script>
     <!-- rem布局结束 -->
 
-
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=HLzD8mRBHAdwq2jnLUxbHsUhorp9mbr1"></script>
     
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+   
+    <div id="allmap"></div>
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -54,5 +56,19 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!--  <script type="text/javascript">
+      // 百度地图API功能
+      var map = new BMap.Map("allmap");
+      var point = new BMap.Point(116.331398,39.897445);
+      map.centerAndZoom(point,12);
+
+      function myFun(result){
+        var cityName = result.name;
+        map.setCenter(cityName);
+        alert("当前定位城市:"+cityName);
+      }
+      var myCity = new BMap.LocalCity();
+      myCity.get(myFun);
+    </script> -->
   </body>
 </html>

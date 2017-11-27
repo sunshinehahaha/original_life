@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import './home.css';
+import Header from '../others/header.js';
 
 
 class Home extends Component{
@@ -7,11 +8,9 @@ class Home extends Component{
 		return (
 			<div id = "home">
 				<header className = "home_header">
-					<div className = "home_header_pos">
-						大连
-					</div>
+					<Header/>
 					<div className = "home_header_ipt">
-
+						首页
 					</div>
 					<div className = "home_header_login">
 
