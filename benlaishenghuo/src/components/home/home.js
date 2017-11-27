@@ -1,7 +1,15 @@
 import React,{Component} from 'react';
 import './home.css';
 import Header from '../others/header.js';
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink,
+  Redirect,
+} from 'react-router-dom';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
+import {Button} from 'antd';
 
 class Home extends Component{
 	render (){
@@ -9,15 +17,44 @@ class Home extends Component{
 			<div id = "home">
 				<header className = "home_header">
 					<Header/>
-					<div className = "home_header_ipt">
-						首页
-					</div>
-					<div className = "home_header_login">
-
-					</div>
 				</header>
-				<nav className = "home_nav"></nav>
-				<div className = "home_slider"></div>
+				<nav className = "home_nav">
+					<ul>
+						<li>
+							<NavLink activeClassName = "home_green" to="/home">推荐</NavLink>
+						</li>
+						<li>
+							<NavLink activeClassName = "home_green" to="/home">水果</NavLink>
+						</li>
+						<li>
+							<NavLink activeClassName = "home_green" to="/home">肉禽</NavLink>
+						</li>
+						<li>
+							<NavLink activeClassName = "home_green" to="/home">水产</NavLink>
+						</li>
+						<li>
+							<NavLink activeClassName = "home_green" to="/home">蔬菜</NavLink>
+						</li>
+						<li>
+							<NavLink activeClassName = "home_green" to="/home">粮油</NavLink>
+						</li>
+						<li>
+							<NavLink activeClassName = "home_green" to="/home">乳品</NavLink>
+						</li>
+						<li>
+							<NavLink activeClassName = "home_green" to="/home">酒饮</NavLink>
+						</li>
+						<li>
+							<NavLink activeClassName = "home_green" to="/home">零食</NavLink>
+						</li>
+						<li>
+							<NavLink activeClassName = "home_green" to="/home">厨具</NavLink>
+						</li>
+					</ul>
+				</nav>
+				<div className = "home_slider">
+					
+				</div>
 				<main className = "home_list"></main>
 			</div>
 		)
