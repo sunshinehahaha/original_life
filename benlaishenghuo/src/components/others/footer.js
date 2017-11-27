@@ -13,31 +13,31 @@ export default class Footer extends Component{
 		    <div className="footer">
 			    <ul>
 			        <li>
-			       		<NavLink activeClassName="haha" to="/home">
+			       		<NavLink activeClassName="active" to="/home">
 			       			<i class="iconfont">&#xe663;</i>
 			       			<span>首页</span>
 			       		</NavLink>
 			       	</li>
 			        <li>
-			        	<NavLink activeClassName="haha" to="/classify">
+			        	<NavLink activeClassName="active" to="/classify">
 			        		<i class="iconfont">&#xe6b0;</i>
 			        		<span>分类</span>
 			        	</NavLink>
 			        </li>
 			        <li>
-			        	<NavLink activeClassName="haha" to="/#">
+			        	<NavLink activeClassName="active" to="/#">
 			        		<i class="iconfont">&#xe61c;</i>
 			        		<span>充值</span>
 			        	</NavLink>
 			        </li>
 			        <li>
-			        	<NavLink activeClassName="haha" to="/cart">
+			        	<NavLink activeClassName="active" to="/cart">
 			        		<i class="iconfont">&#xe501;</i>
 			        		<span>购物车</span>
 			        	</NavLink>
 			        </li>
 			        <li>
-			        	<NavLink activeClassName="haha" to="/my">
+			        	<NavLink activeClassName="active" to="/my">
 			        		<i class="iconfont">&#xe502;</i>
 			        		<span>我的本来</span>
 			        	</NavLink>
