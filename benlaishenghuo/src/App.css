@@ -1,8 +1,8 @@
-/*.App .Footer{
+.App .Footer{
   position: fixed;
   bottom: 0px;
   left:0;
-  height: 20px;
+  height: 0.2px;
   width: 100%;
   background: #f00;
-}*/
+}
