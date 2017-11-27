@@ -1,13 +1,29 @@
 import React,{Component} from 'react';
+import './home.css';
 
 
-
-export default class Home extends Component{
+class Home extends Component{
 	render (){
 		return (
-			<div>
-				<h2>主页</h2>
+			<div id = "home">
+				<header className = "home_header">
+					<div className = "home_header_pos">
+						大连
+					</div>
+					<div className = "home_header_ipt">
+
+					</div>
+					<div className = "home_header_login">
+
+					</div>
+				</header>
+				<nav className = "home_nav"></nav>
+				<div className = "home_slider"></div>
+				<main className = "home_list"></main>
 			</div>
 		)
 	}
 }
+
+
+export default Home;
