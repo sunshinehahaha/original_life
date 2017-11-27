@@ -1,4 +1,5 @@
 #home{
+	margin-top:0.37rem;
 	.home_header{
 		width: 100%;
 		height: 0.4rem;
@@ -10,17 +11,5 @@
 	.home_slider{
 		width: 100%;
 		height: 1.3rem;
-	}
-}
-.home_header{
-	.home_header_pos{
-		width: 0.7rem;
-		height: 0.4rem;
-		line-height: 0.4rem;
-		text-align: center;
-		font-size: 0.14rem;
-	}
-	.home_header_ipt{
-		
 	}
 }
