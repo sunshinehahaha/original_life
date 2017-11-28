@@ -1,9 +1,11 @@
 .header {
+  width: 100%;
   height: 0.37rem;
   line-height: 0.37rem;
   position: fixed;
   background: #fff;
-  top: 0; }
+  top: 0;
+  z-index: 2; }
   .header .address {
     width: 0.7rem;
     height: 0.37rem;

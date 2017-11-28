@@ -70,7 +70,29 @@ class Home extends Component{
 					  </Carousel>
 				</div>
 				<main className = "home_list">
-					
+					<div className = "home_list_new">
+						<NavLink to = "/classify">这是可以跳转的新人专享的图片</NavLink>
+					</div>
+					<ul className = "home_list_ul">
+						<li>
+							<NavLink to = "/classify">充值</NavLink>
+						</li>
+						<li>
+							<NavLink to = "/classify">银行活动</NavLink>
+						</li>
+						<li>
+							<NavLink to = "/classify">本来礼品</NavLink>
+						</li>
+						<li>
+							<NavLink to = "/classify">兑换专区</NavLink>
+						</li>
+					</ul>
+					<div className = "home_list_org">
+						<NavLink to = "/classify">这是一个可以跳转的橙子大图片</NavLink>
+					</div>
+					<div className = "home_list_loop">
+						<NavLink to = "/classify">这是一些循环出来的图片</NavLink>
+					</div>
 				</main>
 			</div>
 		)

@@ -23,6 +23,40 @@
 #home .home_slider {
   width: 100%;
   height: 1.3rem; }
+#home .home_list {
+  width: 100%;
+  height: 2.6rem;
+  background: #ddd; }
+  #home .home_list .home_list_new {
+    width: 100%;
+    height: 1.9rem;
+    line-height: 1.9rem;
+    text-align: center; }
+  #home .home_list .home_list_ul {
+    width: 100%;
+    height: 0.68rem;
+    line-height: 0.68rem;
+    border: 1px solid #ccc;
+    text-align: center; }
+    #home .home_list .home_list_ul li {
+      display: inline-block;
+      width: 24.9%;
+      height: 100%;
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc; }
+  #home .home_list .home_list_org {
+    width: 100%;
+    height: 2.6rem;
+    background: #aaa;
+    text-align: center;
+    line-height: 2.6rem; }
+  #home .home_list .home_list_loop {
+    width: 100%;
+    height: 1.3rem;
+    margin-top: 0.08rem;
+    background: #999;
+    text-align: center;
+    line-height: 1.3rem; }
 
 .home_header .home_header_pos {
   width: 0.7rem;
@@ -65,8 +99,8 @@
 
 .ant-carousel .slick-slide {
   text-align: center;
-  height: 160px;
-  line-height: 160px;
+  height: 1.3rem;
+  line-height: 1.3rem;
   background: #364d79;
   overflow: hidden; }
   .ant-carousel .slick-slide h3 {
