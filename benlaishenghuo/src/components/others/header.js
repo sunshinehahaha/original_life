@@ -24,9 +24,9 @@ export default class Header extends Component{
 			<div className="header">
 				<span className="address" id="allmap">大连</span>
 				<div className="search">
-					<input type="text" placeholder="优级果148元10斤"/>
-					<span className="mirror"><i class="iconfont">&#xe60b;</i></span>
-					<span className="cancel"><i class="iconfont">&#xe713;</i></span>
+					<input type="text" placeholder="优级果148元10斤" />
+					<span className="mirror"><i className ="iconfont">&#xe60b;</i></span>
+					<span className="cancel"><i className ="iconfont">&#xe713;</i></span>
 				</div>
 			</div>
 		)

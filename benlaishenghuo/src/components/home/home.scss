@@ -21,8 +21,8 @@
 				margin-right:0.2rem;
 				font-size: 0.12rem;
 				height: 0.35rem;
-				.home_green{
-					color: #abd13e;
+				.active{
+					color:#abd13e !important;
 				}
 			}
 		}
@@ -80,3 +80,15 @@
 		font-weight: bolder;
 	}
 }
+	.ant-carousel{
+		.slick-slide{
+			text-align: center;
+			height: 160px;
+			line-height: 160px;
+			background: #364d79;
+			overflow: hidden;
+			h3{
+				color: #fff;
+			}
+		}
+	}

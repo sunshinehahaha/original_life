@@ -1,2 +1,35 @@
-.header{height:0.37rem;border:1px solid #eee;position:fixed;background:#fff;top:0}.header .address{width:0.7rem;height:0.37rem;line-height:0.37rem;display:inline-block;text-align:center}.header .search{display:inline-block;width:2.50rem;border:1px solid #ccc;height:0.25rem;border-radius:0.2rem;line-height:0.25rem;padding-left:0.3rem;color:#ccc;position:relative}.header .search input{border:0;width:2.5rem;outline:none}.header .search .mirror{position:absolute;left:0.1rem}.header .search .cancel{position:absolute;right:0.1rem}
+.header {
+  height: 0.37rem;
+  line-height: 0.37rem;
+  position: fixed;
+  background: #fff;
+  top: 0; }
+  .header .address {
+    width: 0.7rem;
+    height: 0.37rem;
+    line-height: 0.37rem;
+    float: left;
+    text-align: center; }
+  .header .search {
+    float: left;
+    margin-left: 0.2rem;
+    width: 2.50rem;
+    height: 0.37rem;
+    line-height: 0.37rem;
+    color: #ccc;
+    position: relative; }
+    .header .search input {
+      border: 1px solid #ccc;
+      width: 2.5rem;
+      outline: none;
+      border-radius: 0.2rem;
+      text-align: center;
+      height: 0.25rem; }
+    .header .search .mirror {
+      position: absolute;
+      left: 0.1rem; }
+    .header .search .cancel {
+      position: absolute;
+      right: 0.1rem; }
+
 /*# sourceMappingURL=header.css.map */
