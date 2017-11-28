@@ -1,0 +1,1 @@
+SET DEBUG=benlaishenghuohou:* & npm start
