@@ -1,5 +1,6 @@
 import React,{ Component } from 'react';
 import axios from 'axios';
+import './sass/regist.css';
 export default class Regist extends Component{
 	constructor(){
 		super();
@@ -17,16 +18,16 @@ export default class Regist extends Component{
 				alert("注册失败");
 				return;
 			}
-			this.$router.push('/my');
+			// this.$router.push('/my');
 		})
 	}
 	render(){
 		return (
 			<div className="regist">
-				<h2>注册</h2>
-				<input type="text" placeholder="用户名" ref="username"/><br/><br/>
-				<input type="text" placeholder="密码" ref="psw"/><br/><br/>
-				<button onClick={()=>{this.regist(this.refs.username.value,this.refs.psw.value)}}>注册</button>
+				<input type="text" placeholder="用户名" ref="username" className="username"/><br/><br/>
+				<input type="text" placeholder="密码" ref="psw" className="username"/><br/><br/>
+				<input type="text" placeholder="确认密码" ref="psw" className="username"/><br/><br/>
+				<button onClick={()=>{this.regist(this.refs.username.value,this.refs.psw.value)}} className="loginU">注册</button>
 			</div>
 		)
 	}

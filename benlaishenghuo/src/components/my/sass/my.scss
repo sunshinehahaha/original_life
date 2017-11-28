@@ -1,0 +1,31 @@
+.my{
+	h2{
+		height:0.35rem;
+		text-align:center;
+		line-height:0.35rem;
+		border-bottom:1px solid #ccc;
+		padding-left:0.1rem;
+		i{
+			float: left;
+		}
+	}
+	// .loginRegist{
+	// 	height:0.35rem;
+	// 	line-height: 0.35rem;
+	// }
+	.active{
+		background: #f2f2f2;
+	}
+	.loginRe{
+		width:50%;
+		display: inline-block;
+		height: 0.35rem;
+		line-height: 0.35rem;
+		text-align: center;
+	}
+	// .regist{
+	// 	width:50%;
+	// 	display: inline-block;
+	// 	height: 0.35rem;
+	// }
+}

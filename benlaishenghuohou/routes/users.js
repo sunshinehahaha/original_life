@@ -38,30 +38,29 @@ router.post('/api/regist', function(req, res, next) {
 	})
 });
 
-// router.post('/api/login', function(req, res, next) {
-// 	var result = {
-// 		code:1
-// 	}
-// 	UserModel.find({username:req.body.username,psw:req.body.psw},(err,docs)=>{
-// 		if(err){
-// 			result.code = -20;
-// 			result.message = '服务器故障';
-// 			res.send(JSON.stringify(result));
-// 			return;
-// 		}
-// 		if(docs.length ===0){
-// 			result.code = -21;
-// 			result.message = '密码或用户名不正确呢';
-// 			res.send(JSON.stringify(result));
-// 			return;
-// 		}
+router.post('/api/login', function(req, res, next) {
+	var result = {
+		code:1
+	}
+	UserModel.find({username:req.body.username,psw:req.body.psw},(err,docs)=>{
+		if(err){
+			result.code = -20;
+			result.message = '服务器故障';
+			res.send(JSON.stringify(result));
+			return;
+		}
+		if(docs.length ===0){
+			result.code = -21;
+			result.message = '密码或用户名不正确呢';
+			res.send(JSON.stringify(result));
+			return;
+		}
 
-// 		req.session.username = req.body.username;
-// 		result.session = req.body.username;
-// 		res.send(JSON.stringify(result));
-		
-// 	})
-// });
+		req.session.username = req.body.username;
+		result.session = req.body.username;
+		res.send(JSON.stringify(result));
+	})
+});
 
 
 module.exports = router;
