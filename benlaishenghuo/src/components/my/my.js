@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
-import Login from './login.js';
-import Regist from './regist.js';
 import './sass/my.css';
+import LoginRoute from './LoginRoute';
 import {
   BrowserRouter as Router,
   Route,
@@ -11,6 +10,11 @@ import {
 } from 'react-router-dom';
 
 export default class My extends Component{
+	componentDidMount() {
+		console.log(this.props.match);
+		console.log({...this.props});//{...this.props解构赋值}
+
+	}
 	render (){
 		return (
 			<Router>
@@ -21,17 +25,16 @@ export default class My extends Component{
 						</Link>
 						我的
 					</h2>
-					<NavLink activeClassName="active"  className="loginRe" to="/my/login">
+					<NavLink activeClassName="active"  className="loginRe" to={`${this.props.match.url}/login`}>
 					 	登录
 				    </NavLink>
-				    <NavLink activeClassName="active" className="loginRe" to="/my/regist">
+				    <NavLink activeClassName="active" className="loginRe" to={`${this.props.match.url}/regist`}>
 				 		注册
 				    </NavLink>
 					<div className="loginRegist">
-						<Route  path="/my/login" component={Login}/>
-	          		
-						<Route path="/my/regist" component = {Regist}/>
 						
+						<LoginRoute {...this.props}></LoginRoute>
+
 					</div>
 				</div>
 			</Router>

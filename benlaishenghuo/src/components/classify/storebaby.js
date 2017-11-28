@@ -30,13 +30,13 @@ class StorebabyUI extends Component{
 							{
 								temp1.map((item,index)=>{
 									return (
-										<div key={item}>
+										<div key={item.sysNo}>
 											<p className="recommend">{item.name}</p>
 											<ul className="storeUl">
 											{
 												item.children.map((item1,index1)=>{
 													return (
-														<li key={item1} className="storeLi">
+														<li key={item1.sysNo} className="storeLi">
 															<img src={item1.imgUrl}/>
 															<span className="font">{item1.name}</span>
 														</li>

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 var UserModel = require('../model/UserModel');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -37,7 +38,25 @@ router.post('/api/regist', function(req, res, next) {
 		})	
 	})
 });
-
+router.post('/api/json',(req,res,next)=>{
+	var result =[];
+	fs.readFile('C:\\Users\\Administrator\\Desktop\\original_life\\benlaishenghuohou\\public\\json\\fruit.json', (err, data) => {
+		if(err){
+			console.log(err);
+		}
+		// res.send({
+		// 	data: data.toString()
+		// });
+		var temp=data.toString();
+		// console.log(temp);
+		for(var i=0;i<temp.length;i++){
+			// result.push(temp[i]);
+			// console.log(temp[i]);
+		}
+		console.log(result);//data是文件的内容
+		// res.send(JSON.stringify(result));
+	});
+})
 router.post('/api/login', function(req, res, next) {
 	var result = {
 		code:1

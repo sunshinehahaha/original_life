@@ -11,8 +11,8 @@ import {
   Route,
   Link,
   NavLink,
-  Redirect,
-  Switch
+  // Redirect,
+  // Switch
 } from 'react-router-dom';
 
 class ClassifyUI extends Component{
@@ -35,7 +35,7 @@ class ClassifyUI extends Component{
 		          				</NavLink>
 		          			</li>
 			          		<li>
-		          				<NavLink to = "/fruit" activeClassName="activeClassify">
+		          				<NavLink to = "/classify/fruit" activeClassName="activeClassify">
 		          					水果
 		          				</NavLink>
 		          			</li>
@@ -63,7 +63,7 @@ class ClassifyUI extends Component{
 					<div className="right">
 					
 							<Route  path="/classify/storebaby" component={Storebaby}/>
-							<Route  path="/fruit" component={Fruit}/>
+							<Route  path="/classify/fruit" component={Fruit}/>
 							<Route  path="/vegetables" component={Vegetables}/>
 						
 					</div>
@@ -86,7 +86,7 @@ const mapDispatchToProps = (dispatch)=>{
     getData:function(data){
     	axios.get("/showCategoryMore")
 	    .then(function(res){
-	      console.log(res);
+	      // console.log(res);
 	      dispatch({
 	        type:"ADD_TODO",
 	        payload:res,
