@@ -16,21 +16,21 @@ export default class My extends Component{
 			<Router>
 				<div className="my">
 					<h2>
-						<Link to="/home">
+						<Link to="/">
 							<i className="iconfont">&#xe607;</i>
 						</Link>
 						我的
 					</h2>
-					<NavLink activeClassName="active"  className="loginRe" to="/login">
+					<NavLink activeClassName="active"  className="loginRe" to="/my/login">
 					 	登录
 				    </NavLink>
-				    <NavLink activeClassName="active" className="loginRe" to="/regist">
+				    <NavLink activeClassName="active" className="loginRe" to="/my/regist">
 				 		注册
 				    </NavLink>
 					<div className="loginRegist">
-						<Route  path="/login" component={Login}/>
+						<Route  path="/my/login" component={Login}/>
 	          		
-						<Route path="/regist" component = {Regist}/>
+						<Route path="/my/regist" component = {Regist}/>
 						
 					</div>
 				</div>

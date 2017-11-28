@@ -6,3 +6,10 @@
   width: 100%;
   background: #f00;
 }
+/*html,body{
+	height:100%;
+}
+.main{
+	overflow: auto;
+	display: flex;
+}*/

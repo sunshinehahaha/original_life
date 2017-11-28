@@ -14,6 +14,7 @@ import {
   Link,
   NavLink,
   Redirect,
+  Switch
 } from 'react-router-dom';
 
 class App extends Component {
@@ -21,12 +22,16 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Redirect  exact from="/" to="/home"/>
-          <Route  path="/home" component={Home}/>
-          <Route  path="/classify" component={Classify}/>
-          <Route  path="/cart" component={Cart}/>
-          <Route  path="/my" component={My}/>
+              <Switch>
+                <Redirect  exact from="/" to="/home"/>
+                <Route  path="/home" component={Home}/>
+                <Route  path="/classify" component={Classify}/>
+                <Route  path="/cart" component={Cart}/>
+                <Route  path="/my" component={My}/>
+              </Switch>
+          
           <Footer/>
+       
         </div>
       </Router>
     );
