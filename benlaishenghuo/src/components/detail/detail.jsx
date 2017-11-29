@@ -48,8 +48,8 @@ class Detail extends Component{
 									<div key = {item.sysNo}>
 										<img src={item.imgUrl} className = "detail_main_pic"/>
 										<div className = "detail_main_list">
-											<div className = "detail_main_listname">{item.name}</div>
-											<div className = "detail_main_cost">{item.price}</div>
+											<div className = "detail_main_listname"><span>商品名:</span>{item.name}</div>
+											<div className = "detail_main_cost"><span>价格:</span>￥{item.price}</div>
 										</div>
 									</div>
 								)
