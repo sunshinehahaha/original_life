@@ -115,7 +115,7 @@ router.post('/save/goods', function(req, res, next) {
 	var result = {
 		code:1
 	}
-	GoodsModel.find({username:req.body.username},(err,docs)=>{
+	GoodsModel.find({name:req.body.name},(err,docs)=>{
 		if(err){
 			result.code = -20;
 			result.message = '服务器故障';
