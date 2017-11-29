@@ -1,0 +1,34 @@
+.right_vegetables{
+	width: 2.3rem;
+	margin-left: 0.15rem;
+	.vegetables_button{
+		width: 100%;
+		height: 0.4rem;
+		line-height: 0.4rem;
+		background: #fff;
+		color: #000;
+		font-size: 0.16rem;
+		text-align: center;
+	}
+	h3{
+		width: 100%;
+		height: 0.4rem;
+		line-height: 0.4rem;
+		background: #eee;
+	}
+	ul{
+		width: 100%;
+		li{
+			width: 33.3%;
+			height: 0.9rem;
+			display: inline-block;
+			line-height: 0.9rem;
+			text-align: center;
+		}
+	}
+	.vegetables_null{
+		width:100%;
+		height: 0.45rem;
+		background: #fff;
+	}
+}
