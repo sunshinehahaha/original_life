@@ -1,0 +1,46 @@
+#cart {
+  background: #f2f2f2;
+  height: 10rem; }
+  #cart .cart_header {
+    width: 100%;
+    height: 0.35rem;
+    background: #fff; }
+    #cart .cart_header .cart_header_icon {
+      width: 0.35rem;
+      height: 0.35rem;
+      float: left;
+      line-height: 0.35rem;
+      text-align: center;
+      color: #c1dc6e;
+      font-size: 0.16rem; }
+    #cart .cart_header h2 {
+      float: left;
+      color: #c1dc6e;
+      height: 0.35rem;
+      line-height: 0.35rem;
+      text-align: center;
+      width: 2.9rem; }
+    #cart .cart_header span {
+      float: right;
+      width: 0.5rem;
+      height: 0.35rem;
+      line-height: 0.35rem;
+      text-align: center;
+      color: #c1dc6e; }
+  #cart .cart_main ul {
+    width: 100%;
+    height: 1rem;
+    background: #fff; }
+  #cart .cart_main li {
+    display: inline-block; }
+  #cart .cart_footer {
+    width: 100%;
+    height: 0.45rem;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    z-index: 5; }
+    #cart .cart_footer p {
+      float: left; }
+
+/*# sourceMappingURL=cart.css.map */
