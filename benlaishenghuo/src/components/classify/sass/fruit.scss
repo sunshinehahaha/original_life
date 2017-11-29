@@ -24,6 +24,18 @@
 			display: inline-block;
 			line-height: 0.9rem;
 			text-align: center;
+			img{
+				display: block;
+				width: 90%;
+				height: 0.7rem;
+			}
+			span{
+				display: block;
+				text-align: center;
+				height: 0.18rem;
+				line-height: 0.18rem;
+				
+			}
 		}
 	}
 	.fruit_null{
