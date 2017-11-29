@@ -2,6 +2,13 @@ import React,{Component} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import './sass/fruit.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink,
+  Redirect,
+} from 'react-router-dom';
 
 export default class Fruit extends Component{
 	constructor(){
@@ -38,8 +45,10 @@ export default class Fruit extends Component{
 							this.state.fruitList.map((item,index)=>{
 								return (
 									<li key={item.sysNo}>
-										<img src={item.imgUrl}/>
-										<span>{item.name}</span>
+										<Link to={"/detail"}>
+											<img src={item.imgUrl}/>
+											<span>{item.name}</span>
+										</Link>
 									</li>
 								)
 							})

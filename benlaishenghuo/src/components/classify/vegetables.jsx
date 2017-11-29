@@ -3,8 +3,6 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import './sass/vegetables.css';
 
-
-
 export default class Vegetables extends Component{
 	constructor(){
 		super();

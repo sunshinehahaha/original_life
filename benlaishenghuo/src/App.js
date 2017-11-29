@@ -7,6 +7,7 @@ import Classify from './components/classify/classify.js';
 import Cart from './components/cart/cart.js';
 import My from './components/my/my.js';
 import './components/others/sass/footer.css';
+import Detail from './components/detail/detail.jsx';
 
 import {
   BrowserRouter as Router,
@@ -28,6 +29,7 @@ class App extends Component {
                 <Route  path="/classify" component={Classify}/>
                 <Route  path="/cart" component={Cart}/>
                 <Route path="/my" component={My}/>
+                <Route  path="/detail" component={Detail}/>
 
               </Switch>
           

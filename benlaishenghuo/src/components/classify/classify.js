@@ -6,6 +6,7 @@ import axios from 'axios';
 import Storebaby from './storebaby.js';
 import Fruit from './fruit.jsx';
 import Vegetables from './vegetables.jsx';
+import Detail from './../detail/detail.jsx';
 import {
   BrowserRouter as Router,
   Route,
@@ -24,7 +25,7 @@ class ClassifyUI extends Component{
   	}
 	render(){
 	    return (
-	    	<Router>
+	   
 		        <div className="classify">
 		        	<Header/>
 		            <div className="left">
@@ -40,7 +41,7 @@ class ClassifyUI extends Component{
 		          				</NavLink>
 		          			</li>
 		          			<li>
-		          				<NavLink to = "/vegetables" activeClassName="activeClassify">
+		          				<NavLink to = "/classify/vegetables" activeClassName="activeClassify">
 		          					蔬菜
 		          				</NavLink>
 		          			</li>
@@ -64,12 +65,12 @@ class ClassifyUI extends Component{
 					
 							<Route  path="/classify/storebaby" component={Storebaby}/>
 							<Route  path="/classify/fruit" component={Fruit}/>
-							<Route  path="/vegetables" component={Vegetables}/>
-						
+							<Route  path="/classify/vegetables" component={Vegetables}/>
+							
 					</div>
 
 		        </div>
-	        </Router>
+	  
     )
   }
 }
