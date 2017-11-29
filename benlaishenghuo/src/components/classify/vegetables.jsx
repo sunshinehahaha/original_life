@@ -5,9 +5,28 @@ import './sass/vegetables.css';
 
 
 
-class Vegetables extends Component{
+export default class Vegetables extends Component{
 	constructor(){
 		super();
+		this.getVegetablesData = this.getVegetablesData.bind(this);
+		this.state = {
+			vegetablesList:[]
+		}
+	}
+	componentDidMount(){
+		this.getVegetablesData();
+	}
+	getVegetablesData(){
+		var that = this;
+		console.log(this);
+		axios.post('/api/search')
+			.then((res)=>{
+				console.log(this);
+				this.state.vegetablesList = res.data.data;
+				this.setState({
+			      vegetablesList:that.state.vegetablesList
+			    })
+			})
 	}
 	render(){
 		return(
@@ -16,11 +35,16 @@ class Vegetables extends Component{
 					<h3>热门推荐</h3>
 					<div className = "vegetables_hot">
 						<ul className = "vegetables_hot_ul">
-							<li>推荐蔬菜</li>
-							<li>推荐蔬菜</li>
-							<li>推荐蔬菜</li>
-							<li>推荐蔬菜</li>
-							<li>推荐蔬菜</li>
+							{
+							this.state.vegetablesList.map((item,index)=>{
+								return (
+									<li key={item.sysNo}>
+										<img src={item.imgUrl}/>
+										<span>{item.name}</span>
+									</li>
+								)
+							})
+						}
 						</ul>
 					</div>
 					<h3>新鲜蔬菜</h3>
@@ -46,16 +70,16 @@ class Vegetables extends Component{
 	}
 }
 
-const mapStateToProps = (state)=>{
-	return {
-		storeList:state.storeList
-	}
-}
+// const mapStateToProps = (state)=>{
+// 	return {
+// 		storeList:state.storeList
+// 	}
+// }
 
-const mapDispatchToProps = (dispacth)=>{
-	return {
+// const mapDispatchToProps = (dispacth)=>{
+// 	return {
 		
-	}
-}
+// 	}
+// }
 
-export default Vegetables;
+// export default Vegetables;

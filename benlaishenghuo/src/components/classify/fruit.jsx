@@ -2,14 +2,6 @@ import React,{Component} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import './sass/fruit.css';
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Link,
-//   NavLink,
-//   Redirect,
-//   Switch
-// } from 'react-router-dom';
 
 export default class Fruit extends Component{
 	constructor(){
@@ -28,7 +20,12 @@ export default class Fruit extends Component{
 			.then((res)=>{
 				console.log(res);
 				that.state.fruitList = res.data.data;
+
+				that.setState({
+			      fruitList:that.state.fruitList
+			    })
 			})
+
 	}
 	render(){
 		return(
@@ -49,7 +46,24 @@ export default class Fruit extends Component{
 						}
 						</ul>
 					</div>
-					
+					<h3>新鲜水果</h3>
+					<div className = "fruit_com">
+						<ul className = "fruit_com_ul">
+							<li>新鲜水果</li>
+							<li>新鲜水果</li>
+							<li>新鲜水果</li>
+							<li>新鲜水果</li>
+							<li>新鲜水果</li>
+							<li>新鲜水果</li>
+						</ul>
+					</div>
+					<h3>礼盒/组合</h3>
+					<div className = "fruit_cho">
+						<ul className = "fruit_cho_ul">
+							<li>组合水果</li>
+						</ul>
+					</div>
+					<div className = "fruit_null"></div>
 				</div>
 			)
 	}
