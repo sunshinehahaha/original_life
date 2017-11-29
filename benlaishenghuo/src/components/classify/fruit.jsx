@@ -45,7 +45,7 @@ export default class Fruit extends Component{
 							this.state.fruitList.map((item,index)=>{
 								return (
 									<li key={item.sysNo}>
-										<Link to={"/detail"}>
+										<Link to={"/detail/" + item.sysNo}>
 											<img src={item.imgUrl}/>
 											<span>{item.name}</span>
 										</Link>

@@ -28,10 +28,21 @@
     font-size: 0.2rem; }
 #detail .detail_main {
   width: 100%; }
-  #detail .detail_main .detail_main_pic {
+  #detail .detail_main img {
     width: 100%;
-    height: 3rem;
-    line-height: 3rem;
+    display: block; }
+  #detail .detail_main .detail_main_listname {
+    width: 100%;
+    height: 0.5rem;
+    text-align: center;
+    line-height: 0.5rem;
+    font-size: 0.2rem; }
+  #detail .detail_main .detail_main_cost {
+    width: 100%;
+    height: 0.45rem;
+    line-height: 0.45rem;
+    color: #ff9600;
+    font-size: 0.2rem;
     text-align: center; }
 #detail .detail_footer {
   width: 100%;
