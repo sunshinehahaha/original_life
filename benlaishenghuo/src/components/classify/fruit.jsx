@@ -84,14 +84,14 @@ const mapDispatchToProps = (dispacth)=>{
 	return {
 		getFruitData:function(){	
 			console.log("Fruit");
-			axios.post('/api/json')
-			.then((res)=>{
-				console.log(res);
-				// dispacth({
-				// 	type:"FRUIT_DATA",
-				// 	payload:res
-				// })
-			})
+			// axios.post('/api/json')
+			// .then((res)=>{
+			// 	console.log(res);
+			// 	// dispacth({
+			// 	// 	type:"FRUIT_DATA",
+			// 	// 	payload:res
+			// 	// })
+			// })
 		}
 		
 	}
