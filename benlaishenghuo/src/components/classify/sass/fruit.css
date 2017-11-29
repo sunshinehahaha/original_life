@@ -1,0 +1,30 @@
+.right_fruit {
+  width: 2.3rem;
+  margin-left: 0.15rem; }
+  .right_fruit .fruit_button {
+    width: 100%;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    background: #fff;
+    color: #000;
+    font-size: 0.16rem;
+    text-align: center; }
+  .right_fruit h3 {
+    width: 100%;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    background: #eee; }
+  .right_fruit ul {
+    width: 100%; }
+    .right_fruit ul li {
+      width: 33.3%;
+      height: 0.9rem;
+      display: inline-block;
+      line-height: 0.9rem;
+      text-align: center; }
+  .right_fruit .fruit_null {
+    width: 100%;
+    height: 0.45rem;
+    background: #fff; }
+
+/*# sourceMappingURL=fruit.css.map */
