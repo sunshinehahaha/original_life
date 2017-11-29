@@ -33,9 +33,9 @@ class Detail extends Component{
 	render(){
 		console.log(this.props.match.params.fid);
 		return(
-				<div id = "deatil">
+				<div id = "detail">
 					<header className = "detail_header">
-						<NavLink to = "/home">
+						<NavLink to = "/classify">
 							<i className ="iconfont detail_header_icon">&#xe607;</i>
 						</NavLink>
 						<p className = "detail_header_pos">大连</p>
@@ -58,6 +58,12 @@ class Detail extends Component{
 					}
 						
 					</main>
+					<footer className = "detail_footer">
+						<div className = "detail_footer_add">
+							<i className ="iconfont detail_footer_icon">&#xe501;</i>
+						</div>
+						<div className = "detail_footer_info">无法送达</div>
+					</footer>
 				</div>
 			)
 	}
