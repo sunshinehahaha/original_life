@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 var UserModel = require('../model/UserModel');
+var GoodsModel = require('../model/GoodsModel');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.render('index',{});
 });
 
 router.post('/api/regist', function(req, res, next) {
@@ -39,23 +40,22 @@ router.post('/api/regist', function(req, res, next) {
 	})
 });
 
-router.post('/api/json',(req,res,next)=>{
-	var temp={};
-	fs.readFile('C:\\Users\\Administrator\\Desktop\\original_life\\benlaishenghuohou\\public\\json\\fruit.json', (err, data) => {
-		if(err){
-			console.log(err);
-		}
-		// console.log(data.toString());
-		// console.log(JSON.stringify(data.toString()));
-		console.log(JSON.parse(JSON.stringify(data.toString())));
+// router.post('/api/json',(req,res,next)=>{
+// 	var temp={};
+// 	res.setHeader('content-type', 'text/html;charset=utf-8');
+// 	fs.readFile('C:\\Users\\Administrator\\Desktop\\original_life\\benlaishenghuohou\\public\\json\\fruit.json', (err, data) => {
+// 		if(err){
+// 			console.log(err);
+// 		}
+// 		// console.log(data.toString());
+// 		// console.log(JSON.stringify(data.toString()));
+// 		console.log(JSON.parse(JSON.stringify(data.toString())));
 		
-		temp = JSON.parse(JSON.stringify(data.toString()));
-		res.send(temp);
+// 		temp = JSON.parse(JSON.stringify(data.toString()));
+// 		res.send(temp);
 
-	})
-	
-
-});
+// 	})
+// });
 
 router.post('/api/login', function(req, res, next) {
 
@@ -109,4 +109,44 @@ router.get('/api/del',function(req,res,next){
 	delete req.session.username;
 	res.send(JSON.stringify(result));
 })
+
+
+router.post('/save/goods', function(req, res, next) {
+	var result = {
+		code:1
+	}
+	GoodsModel.find({username:req.body.username},(err,docs)=>{
+		if(err){
+			result.code = -20;
+			result.message = '服务器故障';
+			res.send(JSON.stringify(result));
+			return;
+		}
+		if(docs.length !=0){
+			result.code = -21;
+			result.message = '用户名已存在';
+			res.send(JSON.stringify(result));
+			return;
+		}
+
+		var goods = new GoodsModel();
+		goods.imgUrl = req.body.imgUrl;
+		goods.name = req.body.name;
+		goods.price = req.body.price;
+		goods.sysNo = req.body.sysNo;
+
+		goods.save((err)=>{
+			if(err){
+				result.code = -22;
+				result.message = '保存失败，服务器出错';
+			}
+			// result.username = req.body.username;
+			res.send(JSON.stringify(result));
+		})	
+	})
+});
+
+
+
+
 module.exports = router;

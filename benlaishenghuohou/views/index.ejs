@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src='/javascripts/jquery.js'></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1></h1>
+    <p></p>
+    <div>
+	    <input type="text" id="imgUrl"/>imgUrl<br/><br/>
+	    <input type="text" id="name"/>name<br/><br/>
+	    <input type="text" id="sysNo"/>sysNo<br/><br/>
+	    <input type="text" id="price"/>price<br/><br/>
+	    <button onclick="saveGoods()">提交</button>
+    </div>
+    <script type="text/javascript">
+    	function saveGoods(){
+    		$.ajax({
+    			url:'/save/goods',
+    			type:'post',
+    			data:{
+    				imgUrl:$('#imgUrl').val(),
+    				name:$('#name').val(),
+    				sysNo:$('#sysNo').val(),
+    				price:$('#price').val()
+    			},
+    			dataType:'json',
+    			success:function(res){
+    				if(res.code!=1){
+    					alert(res.message);
+    				}
+    				alert("保存成功");
+    			}
+    		})
+    	}
+    </script>
   </body>
 </html>

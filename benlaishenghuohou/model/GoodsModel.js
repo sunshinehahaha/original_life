@@ -1,12 +1,14 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var User = new Schema({
-    username : String,
-    psw      : String,
-    date     : { type: Date, default: Date.now }
+var Goods = new Schema({
+    imgUrl  : String,
+    name    : String,
+    price   : Number,
+    sysNo   : String,
+    date    : { type: Date, default: Date.now }
 });
 
-var UserModel = mongoose.model('user', User);
+var GoodsModel = mongoose.model('goods', Goods);
 
-module.exports = UserModel;
+module.exports = GoodsModel;
