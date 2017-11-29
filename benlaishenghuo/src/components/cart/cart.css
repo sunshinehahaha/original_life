@@ -3,28 +3,29 @@
   height: 10rem; }
   #cart .cart_header {
     width: 100%;
-    height: 0.35rem;
-    background: #fff; }
+    height: 0.45rem;
+    background: #fff;
+    border-bottom: 1px solid #ddd; }
     #cart .cart_header .cart_header_icon {
-      width: 0.35rem;
-      height: 0.35rem;
+      width: 0.45rem;
+      height: 0.45rem;
       float: left;
-      line-height: 0.35rem;
+      line-height: 0.45rem;
       text-align: center;
       color: #c1dc6e;
       font-size: 0.16rem; }
     #cart .cart_header h2 {
       float: left;
       color: #c1dc6e;
-      height: 0.35rem;
-      line-height: 0.35rem;
+      height: 0.45rem;
+      line-height: 0.45rem;
       text-align: center;
       width: 2.9rem; }
     #cart .cart_header span {
       float: right;
-      width: 0.5rem;
-      height: 0.35rem;
-      line-height: 0.35rem;
+      width: 0.4rem;
+      height: 0.45rem;
+      line-height: 0.45rem;
       text-align: center;
       color: #c1dc6e; }
   #cart .cart_main ul {
