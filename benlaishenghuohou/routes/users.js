@@ -3,6 +3,7 @@ var router = express.Router();
 var fs = require('fs');
 var UserModel = require('../model/UserModel');
 var GoodsModel = require('../model/GoodsModel');
+var CartModel = require('../model/CartModel');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render('index',{});
@@ -124,6 +125,58 @@ router.get('/api/del',function(req,res,next){
 	delete req.session.username;
 	res.send(JSON.stringify(result));
 })
+
+router.get('/api/showCart',function(req,res,next){
+	var result = {
+		code:1
+	}
+	CartModel.find({username:req.body.username,flag:1},(err,docs)=>{
+		if( err || docs.length == 0){
+			result.code = -110;
+			result.message = "服务器错误";
+			res.send(JSON.stringify(result));
+		}
+
+		result.data = docs;
+		res.send(JSON.stringify(result));
+
+	})
+})
+
+router.post('/api/saveCart', function(req, res, next) {
+	var result = {
+		code:1
+	}
+	CartModel.find({name:req.body.name},(err,docs)=>{
+		if(err){
+			result.code = -20;
+			result.message = '服务器故障';
+			res.send(JSON.stringify(result));
+			return;
+		}
+		if(docs.length !=0){
+			result.code = -21;
+			result.message = '用户名已存在';
+			res.send(JSON.stringify(result));
+			return;
+		}
+
+		var cart = new CartModel();
+		cart.imgUrl = req.body.imgUrl;
+		cart.name = req.body.name;
+		cart.price = req.body.price;
+
+		cart.save((err)=>{
+			if(err){
+				result.code = -22;
+				result.message = '保存失败，服务器出错';
+			}
+			// result.username = req.body.username;
+			res.send(JSON.stringify(result));
+		})	
+	})
+});
+
 
 
 router.post('/save/goods', function(req, res, next) {

@@ -45,11 +45,11 @@ class Detail extends Component{
 					{
 						this.state.detailList.map((item,index)=>{
 							return (
-								<div>
+								<div key={index}>
 									<img src={item.imgUrl} className = "detail_main_pic"/>
 									<div className = "detail_main_list">
-										<div className = "detail_main_listname">{item.name}</div>
-										<div className = "detail_main_cost">{item.price}</div>
+										<div className = "detail_main_listname">商品名：{item.name}</div>
+										<div className = "detail_main_cost">价格：￥ {item.price}</div>
 									</div>
 								</div>
 							)
@@ -62,7 +62,7 @@ class Detail extends Component{
 						<div className = "detail_footer_add">
 							<i className ="iconfont detail_footer_icon">&#xe501;</i>
 						</div>
-						<div className = "detail_footer_info">无法送达</div>
+						<div className = "detail_footer_info">加入购物车</div>
 					</footer>
 				</div>
 			)
