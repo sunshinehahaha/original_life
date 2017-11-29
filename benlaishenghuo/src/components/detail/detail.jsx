@@ -41,22 +41,20 @@ class Detail extends Component{
 						<p className = "detail_header_pos">大连</p>
 						<h3>商品</h3>
 					</header>
-					<main className = "deatil_main">
-					{
-						this.state.detailList.map((item,index)=>{
-							return (
-								<div key={index}>
-									<img src={item.imgUrl} className = "detail_main_pic"/>
-									<div className = "detail_main_list">
-										<div className = "detail_main_listname">商品名：{item.name}</div>
-										<div className = "detail_main_cost">价格：￥ {item.price}</div>
+					<main className = "detail_main">
+						{
+							this.state.detailList.map((item,index)=>{
+								return (
+									<div key = {item.sysNo}>
+										<img src={item.imgUrl} className = "detail_main_pic"/>
+										<div className = "detail_main_list">
+											<div className = "detail_main_listname"><span>商品名:</span>{item.name}</div>
+											<div className = "detail_main_cost"><span>价格:</span>￥{item.price}</div>
+										</div>
 									</div>
-								</div>
-							)
-						})
-						
-					}
-						
+								)
+							})
+						}
 					</main>
 					<footer className = "detail_footer">
 						<div className = "detail_footer_add">
