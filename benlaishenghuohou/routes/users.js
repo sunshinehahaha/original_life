@@ -40,22 +40,21 @@ router.post('/api/regist', function(req, res, next) {
 	})
 });
 
-// router.post('/api/json',(req,res,next)=>{
-// 	var temp={};
-// 	res.setHeader('content-type', 'text/html;charset=utf-8');
-// 	fs.readFile('C:\\Users\\Administrator\\Desktop\\original_life\\benlaishenghuohou\\public\\json\\fruit.json', (err, data) => {
-// 		if(err){
-// 			console.log(err);
-// 		}
-// 		// console.log(data.toString());
-// 		// console.log(JSON.stringify(data.toString()));
-// 		console.log(JSON.parse(JSON.stringify(data.toString())));
-		
-// 		temp = JSON.parse(JSON.stringify(data.toString()));
-// 		res.send(temp);
-
-// 	})
-// });
+router.post('/api/search',(req,res,next)=>{
+	var result ={
+		code : 1
+	}
+	GoodsModel.find({},(error,docs)=>{
+		if(error || docs.length === 0){
+			result.code = -100;
+			result.message = "服务器错误";
+			res.send(JSON.stringify(result));
+		}
+		console.log(docs);
+		result.data = docs;
+		res.send(JSON.stringify(result));
+	})
+});
 
 router.post('/api/login', function(req, res, next) {
 
@@ -115,7 +114,7 @@ router.post('/save/goods', function(req, res, next) {
 	var result = {
 		code:1
 	}
-	GoodsModel.find({username:req.body.username},(err,docs)=>{
+	GoodsModel.find({name:req.body.name},(err,docs)=>{
 		if(err){
 			result.code = -20;
 			result.message = '服务器故障';
