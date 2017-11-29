@@ -38,28 +38,34 @@ router.post('/api/regist', function(req, res, next) {
 		})	
 	})
 });
+
 router.post('/api/json',(req,res,next)=>{
-	var result =[];
+	var temp={};
 	fs.readFile('C:\\Users\\Administrator\\Desktop\\original_life\\benlaishenghuohou\\public\\json\\fruit.json', (err, data) => {
 		if(err){
 			console.log(err);
 		}
-		// res.send({
-		// 	data: data.toString()
-		// });
-		var temp=data.toString();
-		// console.log(temp);
-		for(var i=0;i<temp.length;i++){
-			// result.push(temp[i]);
-			// console.log(temp[i]);
-		}
-		console.log(result);//data是文件的内容
-		// res.send(JSON.stringify(result));
-	});
-})
+		// console.log(data.toString());
+		// console.log(JSON.stringify(data.toString()));
+		console.log(JSON.parse(JSON.stringify(data.toString())));
+		
+		temp = JSON.parse(JSON.stringify(data.toString()));
+		res.send(temp);
+
+	})
+	
+
+});
+
 router.post('/api/login', function(req, res, next) {
+
 	var result = {
 		code:1
+	}
+	if(req.session.username){
+		result.code = -22;
+		result.message = "不要重新登录";
+		res.send(JSON.stringify(result));
 	}
 	UserModel.find({username:req.body.username,psw:req.body.psw},(err,docs)=>{
 		if(err){
@@ -82,4 +88,25 @@ router.post('/api/login', function(req, res, next) {
 });
 
 
+router.get('/api/checkSession',function(req,res,next){
+	var result = {
+		code:1
+	}
+	if(!req.session||!req.session.username){
+		result.code = -110;
+		result.message = "请先登录";
+		res.send(JSON.stringify(result));
+	}
+	result.session = req.session.username;
+	res.send(JSON.stringify(result));
+})
+
+
+router.get('/api/del',function(req,res,next){
+	var result = {
+		code:1
+	}
+	delete req.session.username;
+	res.send(JSON.stringify(result));
+})
 module.exports = router;

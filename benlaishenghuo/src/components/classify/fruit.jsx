@@ -36,7 +36,7 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispacth)=>{
 	return {
-		getFruitData:function(){
+		getFruitData:function(){	
 			console.log("Fruit");
 			axios.post('/api/json')
 			.then((res)=>{

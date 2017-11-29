@@ -6,11 +6,11 @@ import {
 } from 'react-router-dom';
 
 const LoginRoute = (props) => {
-	console.log(props);
+	// console.log(props);
 	return (
 		<div>
-			<Route  path={`${props.match.url}/login`} component={Login}/>
-	        <Route path={`${props.match.url}/regist`} component = {Regist}/>
+			<Route exact path={`${props.match.url}/login`} component={Login}/>
+	        <Route exact path={`${props.match.url}/regist`} component = {Regist}/>
 		</div>
 	)
 }

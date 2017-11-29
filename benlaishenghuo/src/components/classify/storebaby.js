@@ -23,6 +23,7 @@ class StorebabyUI extends Component{
 	    // var temp5 = temp1[0]?temp1[0]:[];
 	    // var temp4 = temp5.children ? temp5.children : [];
 	    // console.log(temp4);
+	    console.log(props.list);
 		return(
 				<div className = "right_storebaby">
 						<h2>全部镇店之宝</h2>
@@ -59,7 +60,8 @@ class StorebabyUI extends Component{
 
 const mapStateToProps = (state)=>{
 	return {
-		storeList:state.storeList
+		storeList:state.storeList,
+		list:state.list
 	}
 }
 

@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import './sass/my.css';
 import LoginRoute from './LoginRoute';
+import {connect} from 'react-redux';
+import axios from 'axios';
 import {
   BrowserRouter as Router,
   Route,
@@ -9,35 +11,124 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-export default class My extends Component{
+class MyUI extends Component{
 	componentDidMount() {
-		console.log(this.props.match);
+		console.log(this.props);
 		console.log({...this.props});//{...this.props解构赋值}
-
+		this.props.getSession(this);
+		// this.props.changeStatus(this);
 	}
 	render (){
 		return (
-			<Router>
-				<div className="my">
-					<h2>
-						<Link to="/">
-							<i className="iconfont">&#xe607;</i>
-						</Link>
-						我的
-					</h2>
-					<NavLink activeClassName="active"  className="loginRe" to={`${this.props.match.url}/login`}>
-					 	登录
-				    </NavLink>
-				    <NavLink activeClassName="active" className="loginRe" to={`${this.props.match.url}/regist`}>
-				 		注册
-				    </NavLink>
-					<div className="loginRegist">
-						
-						<LoginRoute {...this.props}></LoginRoute>
+			
+			<div className="my">
+				<h2>
+					<Link to="/">
+						<i className="iconfont">&#xe607;</i>
+					</Link>
+					<span id="storeSession" ref="storeMy">我的</span>
+					<span ref="storeMySession">{localStorage.getItem("username")}</span>
+					<span ref="zhuxiao" onClick={() => {this.props.delSession(this)}}>注销</span>
+				</h2>
 
-					</div>
+
+
+
+				<NavLink activeClassName="active"  className="loginRe" to={`${this.props.match.url}/login`}>
+				 	登录
+			    </NavLink>
+
+			    <NavLink activeClassName="active" className="loginRe" ref="haha" to={`${this.props.match.url}/regist`}>
+			 		<span ref="zhuce">注册</span>
+			 		
+			    </NavLink>
+
+
+
+
+
+					
+				<div className="loginRegist">
+					
+					<LoginRoute {...this.props}></LoginRoute>
+
 				</div>
-			</Router>
+			</div>
+			
 		)
 	}
 }
+
+const mapStateToProps = (state)=>{
+	return {
+		// loginSession:state.loginSession[0]
+	}
+}
+
+const mapDispatchToProps = (dispatch)=>{
+	return {
+		
+		getSession:function(myThis){
+			console.log('getSession::run')
+			var that = this;
+				console.log(this);
+			axios.get('/api/checkSession')
+			.then((res)=>{
+				console.log(res);
+				if(res.data.code!=1){
+					console.log(res.data.message);
+					that.history.push('/my/login');//跳转to do 
+					myThis.refs.storeMySession.style.display = "none";
+					myThis.refs.storeMy.style.display = "inline-block";
+					myThis.refs.zhuxiao.style.display = "none";
+					return;
+				}
+
+			// if(localStorage.getItem("username")){
+					myThis.refs.storeMy.style.display = "none";
+					myThis.refs.storeMySession.style.display = "inline-block";
+					myThis.refs.zhuxiao.style.display = "inline-block";
+					console.log("hahaah");
+				
+
+
+			})
+		},
+		changeStatus:function(props){
+			console.log('change::run');
+			// if(localStorage.getItem("username")){
+			// 	props.refs.storeMy.style.display = "none";
+			// 	props.refs.storeMySession.style.display = "inline-block";
+			// 	props.refs.zhuxiao.style.display = "inline-block";
+			// 	console.log("hahaah");
+			// }else{
+			// 	props.refs.storeMySession.style.display = "none";
+			// 	props.refs.storeMy.style.display = "inline-block";
+			// 	props.refs.zhuxiao.style.display = "none";
+
+			// }
+			
+		},
+		delSession:function(myThis){
+			var that = this;
+			console.log("zhuxiao");
+			axios.get('/api/del')
+			.then((res)=>{
+				console.log(res);
+				if(res.data.code!=1){
+					alert(res.data.message);
+					that.history.push('/my');
+
+					return;
+				}
+				localStorage.removeItem("username");
+				alert("注销成功");
+				window.location.reload(false);
+			
+			})
+		}
+	}
+}
+
+const My=connect(mapStateToProps,mapDispatchToProps)(MyUI);
+export default My;

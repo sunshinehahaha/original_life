@@ -18,7 +18,8 @@ export default class Regist extends Component{
 				alert("注册失败");
 				return;
 			}
-			// this.$router.push('/my');
+			alert("注册成功");
+			this.props.history.push('/my/login');
 		})
 	}
 	render(){

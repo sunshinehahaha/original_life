@@ -27,7 +27,8 @@ class App extends Component {
                 <Route  path="/home" component={Home}/>
                 <Route  path="/classify" component={Classify}/>
                 <Route  path="/cart" component={Cart}/>
-                <Route  path="/my" component={My}/>
+                <Route path="/my" component={My}/>
+
               </Switch>
           
           <Footer/>
