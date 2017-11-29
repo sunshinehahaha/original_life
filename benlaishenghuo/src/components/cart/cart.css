@@ -28,12 +28,60 @@
       line-height: 0.45rem;
       text-align: center;
       color: #c1dc6e; }
-  #cart .cart_main ul {
+  #cart .cart_main {
     width: 100%;
     height: 1rem;
     background: #fff; }
-  #cart .cart_main li {
-    display: inline-block; }
+    #cart .cart_main li {
+      display: inline-block; }
+    #cart .cart_main .cart_choose {
+      width: 0.35rem;
+      height: 1rem;
+      line-height: 1rem;
+      text-align: center;
+      vertical-align: top; }
+      #cart .cart_main .cart_choose input {
+        width: 0.2rem;
+        height: 0.2rem; }
+    #cart .cart_main .cart_pic {
+      width: 0.7rem;
+      height: 1rem;
+      line-height: 1rem;
+      text-align: center;
+      vertical-align: top; }
+      #cart .cart_main .cart_pic img {
+        width: 0.6rem;
+        height: 0.6rem;
+        display: block; }
+    #cart .cart_main .cart_name {
+      width: 2.65rem;
+      height: 0.98rem; }
+      #cart .cart_main .cart_name .cart_name_name {
+        width: 100%;
+        height: 0.6rem;
+        font-size: 0.1rem;
+        line-height: 0.6rem;
+        text-align: center; }
+      #cart .cart_main .cart_name .cart_name_mon {
+        width: 100%;
+        height: 0.4rem;
+        line-height: 0.4rem; }
+        #cart .cart_main .cart_name .cart_name_mon .cart_name_onecost {
+          float: left;
+          width: 1.25rem;
+          padding-left: 0.3rem; }
+        #cart .cart_main .cart_name .cart_name_mon .cart_cal {
+          display: block;
+          float: left;
+          width: 1rem;
+          height: 0.4rem; }
+          #cart .cart_main .cart_name .cart_name_mon .cart_cal div {
+            float: left;
+            width: 0.22rem;
+            height: 0.22rem;
+            line-height: 0.22rem;
+            text-align: center;
+            border: 1px solid #ddd; }
   #cart .cart_footer {
     width: 100%;
     height: 0.45rem;
@@ -41,7 +89,32 @@
     position: fixed;
     bottom: 0;
     z-index: 5; }
-    #cart .cart_footer p {
+    #cart .cart_footer input {
+      float: left;
+      height: 0.2rem;
+      margin-left: 0.1rem;
+      width: 0.2rem;
+      line-height: 0.2rem;
+      margin-top: 0.133rem;
+      display: block;
+      border-radius: 50%; }
+    #cart .cart_footer .cart_chooseall {
+      float: left;
+      line-height: 0.45rem;
+      height: 0.45rem;
+      margin-right: 1.5rem; }
+    #cart .cart_footer .cart_pay {
+      width: 0.8rem;
+      height: 0.45rem;
+      background: #ff9600;
+      float: right;
+      line-height: 0.45rem;
+      text-align: center;
+      color: #fff; }
+    #cart .cart_footer .cart_allcost {
+      width: 0.75rem;
+      height: 0.45rem;
+      line-height: 0.45rem;
       float: left; }
 
 /*# sourceMappingURL=cart.css.map */
