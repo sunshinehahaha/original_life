@@ -29,7 +29,7 @@ class App extends Component {
                 <Route  path="/classify" component={Classify}/>
                 <Route  path="/cart" component={Cart}/>
                 <Route path="/my" component={My}/>
-                <Route  path="/detail" component={Detail}/>
+                <Route  path="/detail/:fid" component={Detail}/>
 
               </Switch>
           

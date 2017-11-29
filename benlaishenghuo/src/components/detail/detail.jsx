@@ -4,10 +4,34 @@ import{
 	NavLink
 }from 'react-router-dom';
 
-
+import axios from 'axios';
 
 class Detail extends Component{
+	constructor(){
+		super();
+		this.state ={
+			detailList:[]
+		}
+	}
+	componentDidMount(){
+		this.getData();
+	}
+	getData(){
+		var that = this;
+		axios.post('/api/detail',{
+			id:this.props.match.params.fid
+		})
+		.then((res)=>{
+			console.log(res);
+			that.state.detailList = res.data.data;
+			console.log(that.state.detailList);
+			that.setState({
+				detailList:that.state.detailList
+			})
+		})
+	}
 	render(){
+		console.log(this.props.match.params.fid);
 		return(
 				<div id = "deatil">
 					<header className = "detail_header">
@@ -18,12 +42,21 @@ class Detail extends Component{
 						<h3>商品</h3>
 					</header>
 					<main className = "deatil_main">
-						<div className = "detail_main_pic">这是一个大商品详情的图片</div>
-						<div className = "detail_main_list">
-							<div className = "detail_main_listname">这是商品的名字</div>
-							<div className = "detail_main_list">这是商品描述</div>
-							<div className = "detail_main_cost">这是单价</div>
-						</div>
+					{
+						this.state.detailList.map((item,index)=>{
+							return (
+								<div>
+									<img src={item.imgUrl} className = "detail_main_pic"/>
+									<div className = "detail_main_list">
+										<div className = "detail_main_listname">{item.name}</div>
+										<div className = "detail_main_cost">{item.price}</div>
+									</div>
+								</div>
+							)
+						})
+						
+					}
+						
 					</main>
 				</div>
 			)

@@ -56,6 +56,22 @@ router.post('/api/search',(req,res,next)=>{
 	})
 });
 
+router.post('/api/detail',(req,res,next)=>{
+	var result = {
+		code:1
+	}
+	GoodsModel.find({sysNo:req.body.id},(error,docs)=>{
+		if(error || docs.length === 0){
+			result.code = -100;
+			result.message = "服务器错误";
+			res.send(JSON.stringify(result));
+		}
+		console.log(docs);
+		result.data = docs;
+		res.send(JSON.stringify(result));
+	})
+})
+
 router.post('/api/login', function(req, res, next) {
 
 	var result = {
