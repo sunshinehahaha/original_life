@@ -4,8 +4,8 @@ var fs = require('fs');
 var UserModel = require('../model/UserModel');
 var GoodsModel = require('../model/GoodsModel');
 var CartModel = require('../model/CartModel');
-// var HuangModel = require('../model/HuangModel');
 /* GET users listing. */
+
 router.get('/', function(req, res, next) {
   res.render('index',{});
 });
@@ -104,7 +104,6 @@ router.post('/api/login', function(req, res, next) {
 	})
 });
 
-
 router.get('/api/checkSession',function(req,res,next){
 	var result = {
 		code:1
@@ -117,7 +116,6 @@ router.get('/api/checkSession',function(req,res,next){
 	result.session = req.session.username;
 	res.send(JSON.stringify(result));
 })
-
 
 router.get('/api/del',function(req,res,next){
 	var result = {
@@ -190,8 +188,6 @@ router.post('/api/saveCart', function(req, res, next) {
 	})
 });
 
-
-
 router.post('/save/goods', function(req, res, next) {
 	var result = {
 		code:1
@@ -226,13 +222,6 @@ router.post('/save/goods', function(req, res, next) {
 		})	
 	})
 });
-
-
-
-//点击加入购物车，存数据在数据表里
-// router.post('/api/carthuang',function(req,res,next){
-
-// })
 
 
 
