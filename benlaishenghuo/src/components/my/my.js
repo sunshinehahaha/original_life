@@ -91,11 +91,10 @@ const mapDispatchToProps = (dispatch)=>{
 					return;
 				}
 
-			// if(localStorage.getItem("username")){
-					myThis.refs.storeMy.style.display = "none";
-					myThis.refs.storeMySession.style.display = "inline-block";
-					myThis.refs.zhuxiao.style.display = "inline-block";
-					console.log("hahaah");
+				myThis.refs.storeMy.style.display = "none";
+				myThis.refs.storeMySession.style.display = "inline-block";
+				myThis.refs.zhuxiao.style.display = "inline-block";
+				console.log("hahaah");
 				
 
 
@@ -103,17 +102,6 @@ const mapDispatchToProps = (dispatch)=>{
 		},
 		changeStatus:function(props){
 			console.log('change::run');
-			// if(localStorage.getItem("username")){
-			// 	props.refs.storeMy.style.display = "none";
-			// 	props.refs.storeMySession.style.display = "inline-block";
-			// 	props.refs.zhuxiao.style.display = "inline-block";
-			// 	console.log("hahaah");
-			// }else{
-			// 	props.refs.storeMySession.style.display = "none";
-			// 	props.refs.storeMy.style.display = "inline-block";
-			// 	props.refs.zhuxiao.style.display = "none";
-
-			// }
 			
 		},
 		delSession:function(myThis){

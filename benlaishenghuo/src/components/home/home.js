@@ -29,7 +29,7 @@ class Home extends Component{
 			datu:"",
 			xiaotu:[],
 			ban:[],
-			last:[]
+			last:[],
 		}
 	}
 	componentDidMount(){
@@ -44,10 +44,14 @@ class Home extends Component{
 			that.state.lunbo = res.data.lunbo;
 			that.state.datu = res.data.datu[0];
 			that.state.xiaotu = res.data.xiaotu;
+			that.state.ban = res.data.ban;
+			that.state.last = res.data.last;
 			that.setState({
 				lunbo:that.state.lunbo,
 				datu:that.state.datu,
-				xiaotu:that.state.xiaotu
+				xiaotu:that.state.xiaotu,
+				ban:that.state.ban,
+				last:that.state.last
 			})
 		})
 	}
@@ -126,10 +130,32 @@ class Home extends Component{
 						
 					</ul>
 					<div className = "home_list_org">
-						<NavLink to = "/classify">这是一个可以跳转的橙子大图片</NavLink>
+					{
+						this.state.ban.map((item,index)=>{
+							return (
+								<div key={index}>
+									<NavLink to = "/classify">
+										<img src={item.imgUrl}/>
+									</NavLink>
+								</div>
+							)
+						})
+						
+					}
 					</div>
 					<div className = "home_list_loop">
-						<NavLink to = "/classify">这是一些循环出来的图片</NavLink>
+						{
+							this.state.last.map((item,index)=>{
+								return (
+									<div key={index}>
+										<NavLink to = "/classify">
+											<img src={item.imgUrl}/>
+										</NavLink>
+									</div>
+								)
+							})
+						
+					}
 					</div>
 				</main>
 			</div>

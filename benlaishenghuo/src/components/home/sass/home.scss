@@ -1,5 +1,6 @@
 #home{
 	// margin-top:0.37rem;
+	// margin-bottom:0.3rem;
 	.home_header{
 		border: 1px solid #f4f4f4;
 		width: 100%;
@@ -37,8 +38,7 @@
 		background: #ddd;
 		.home_list_new{
 			width: 100%;
-			height: 1.9rem;
-			line-height: 1.9rem;
+			margin-top:0.2rem;
 			text-align:center;
 		}
 		.home_list_ul{
@@ -57,10 +57,8 @@
 		}
 		.home_list_org{
 			width: 100%;
-			height: 2.6rem;
 			background: #aaa;
 			text-align: center;
-			line-height: 2.6rem;
 		}
 		.home_list_loop{
 			width: 100%;
@@ -136,4 +134,5 @@
 	img{
 		width:100%;
 		height:100%;
+		display: block;
 	}
