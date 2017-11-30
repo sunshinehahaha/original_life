@@ -46,9 +46,6 @@ class MyUI extends Component{
 					    </NavLink>
 					</div>
 					
-					<div className = "my_main_detail">
-						
-					</div>
 
 					<div className = "my_main_out">
 						<span ref="zhuxiao" onClick={() => {this.props.delSession(this)}}>注销</span>
