@@ -15,6 +15,11 @@
 	    <input type="text" id="price"/>price<br/><br/>
 	    <button onclick="saveGoods()">提交</button>
     </div>
+    <hr/>
+    <div>
+        <input type="text" id="img"/>imgUrl<br/><br/>
+        <button onclick="saveImg()">提交</button>
+    </div>
     <script type="text/javascript">
     	function saveGoods(){
     		$.ajax({
@@ -35,6 +40,23 @@
     			}
     		})
     	}
+
+        function saveImg(){
+            $.ajax({
+                url:'/save/imgUrl',
+                type:'post',
+                data:{
+                    imgUrl:$('#img').val(),
+                },
+                dataType:'json',
+                success:function(res){
+                    if(res.code!=1){
+                        alert(res.message);
+                    }
+                    alert("保存成功");
+                }
+            })
+        }
     </script>
   </body>
 </html>

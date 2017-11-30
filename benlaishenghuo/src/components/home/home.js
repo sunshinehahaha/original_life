@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import './home.css';
+import './sass/home.css';
+import axios from 'axios';
 import Header from '../others/header.js';
 import {
   BrowserRouter as Router,
@@ -21,6 +22,35 @@ import 'antd/dist/antd.css';
 
 
 class Home extends Component{
+	constructor(){
+		super();
+		this.state = {
+			lunbo:[],
+			datu:"",
+			xiaotu:[],
+			ban:[],
+			last:[]
+		}
+	}
+	componentDidMount(){
+		this.getImg();
+		
+	}
+	getImg(){
+		var that = this;
+		axios.post("/api/showImg")
+		.then((res)=>{
+			console.log(res);
+			that.state.lunbo = res.data.lunbo;
+			that.state.datu = res.data.datu[0];
+			that.state.xiaotu = res.data.xiaotu;
+			that.setState({
+				lunbo:that.state.lunbo,
+				datu:that.state.datu,
+				xiaotu:that.state.xiaotu
+			})
+		})
+	}
 	render (mountNode){
 		return (
 			<div id = "home">
@@ -63,29 +93,37 @@ class Home extends Component{
 				</nav>
 				<div className = "home_slider">
 					  <Carousel autoplay>
-					    <div><h3>1</h3></div>
-					    <div><h3>2</h3></div>
-					    <div><h3>3</h3></div>
-					    <div><h3>4</h3></div>
+					  {
+					  	this.state.lunbo.map((item,index)=>{
+					  		return (
+								<div key={index}>
+									<div><img src={item.imgUrl}/></div>
+								</div>
+					  		)
+					  	})
+					  }
+					    
 					  </Carousel>
 				</div>
 				<main className = "home_list">
 					<div className = "home_list_new">
-						<NavLink to = "/classify">这是可以跳转的新人专享的图片</NavLink>
+						<NavLink to = "/classify">
+							<img src={this.state.datu.imgUrl}/>
+						</NavLink>
 					</div>
 					<ul className = "home_list_ul">
-						<li>
-							<NavLink to = "/classify">充值</NavLink>
-						</li>
-						<li>
-							<NavLink to = "/classify">银行活动</NavLink>
-						</li>
-						<li>
-							<NavLink to = "/classify">本来礼品</NavLink>
-						</li>
-						<li>
-							<NavLink to = "/classify">兑换专区</NavLink>
-						</li>
+						{
+							this.state.xiaotu.map((item,index)=>{
+								return (
+									<li key={index}>
+										<NavLink to = "/classify">
+											<img src={item.imgUrl}/>
+										</NavLink>
+									</li>
+								)
+							})
+						}
+						
 					</ul>
 					<div className = "home_list_org">
 						<NavLink to = "/classify">这是一个可以跳转的橙子大图片</NavLink>
