@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import './cart.css';
+import './sass/cart.css';
+import axios from 'axios';
 import {
   BrowserRouter as Router,
   Route,
@@ -10,6 +11,25 @@ import {
 
 
 export default class Cart extends Component{
+	constructor(){
+		super();
+	}
+	componentDidMount(){
+		this.showCart();
+	}
+	showCart(){
+		console.log("showCart");
+		console.log(this);
+		axios.get('/api/showCart')
+		.then((res)=>{
+			console.log(res);
+			if(res.data.code!=1){
+				// alert(res.data.message);
+				this.props.history.push('/my');
+			}
+		})
+	}
+	
 	render (){
 		return (
 			<div id = "cart">

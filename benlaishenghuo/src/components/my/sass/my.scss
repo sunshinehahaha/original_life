@@ -1,5 +1,5 @@
 .my{
-	h2{
+	.my_header{
 		height:0.35rem;
 		text-align:center;
 		line-height:0.35rem;
@@ -8,24 +8,67 @@
 		i{
 			float: left;
 		}
+		.my_main_user{
+			font-size: 0.2rem;
+			font-weight: bolder;
+		}
 	}
-	// .loginRegist{
-	// 	height:0.35rem;
-	// 	line-height: 0.35rem;
+	.my_main{
+		.my_main_pic{
+			width: 100%;
+			height: 1.4rem;
+			background: #abd13e;
+			line-height: 1.4rem;
+			text-align: center;
+			padding-top: 0.4rem;
+			.my_main_cir{
+				width: 0.6rem;
+				height: 0.6rem;
+				line-height:0.6rem;
+				border-radius: 50%;
+				margin-left: 1.7rem;
+				background: #fff;
+				.my_main_icon{
+					color: #aaa;
+					font-size: 0.5rem;
+				}
+			}
+		}
+		.my_main_relo{
+			width: 100%;
+			.loginRe{
+				width:50%;
+				display: inline-block;
+				height: 0.35rem;
+				line-height: 0.35rem;
+				text-align: center;
+				border: 1px solid #ddd;
+			}
+		}
+		.my_main_detail{
+			width: 100%;
+			height: 3rem;
+
+		}
+		.my_main_out{
+			width: 20%;
+			height: 0.3rem;
+			border: 1px solid #abd13e;
+			color: #abd13e;
+			text-align: center;
+			line-height: 0.3rem;
+			font-size: 0.16rem;
+			margin-left: 1.5rem;
+		}
+	}
+	// .active{
+	// 	background: #f2f2f2;
 	// }
-	.active{
-		background: #f2f2f2;
-	}
-	.loginRe{
-		width:50%;
-		display: inline-block;
-		height: 0.35rem;
-		line-height: 0.35rem;
-		text-align: center;
-	}
-	// .regist{
+	// .loginRe{
 	// 	width:50%;
 	// 	display: inline-block;
 	// 	height: 0.35rem;
+	// 	line-height: 0.35rem;
+	// 	text-align: center;
 	// }
 }

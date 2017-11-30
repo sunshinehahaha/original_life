@@ -15,7 +15,25 @@ class Detail extends Component{
 	}
 	componentDidMount(){
 		this.getData();
+
 	}
+
+	saveCart(name,imgUrl,price){
+		axios.post('/api/saveCart',{
+			name:name,
+			imgUrl:imgUrl,
+			price:price
+		})
+		.then((res)=>{
+			console.log(res);
+			if(res.data.code!=1){
+				alert(res.data.message);
+				return;
+			}
+			alert("添加购物车成功");
+		})
+	}
+
 	getData(){
 		var that = this;
 		axios.post('/api/detail',{
@@ -32,6 +50,8 @@ class Detail extends Component{
 	}
 	render(){
 		console.log(this.props.match.params.fid);
+		console.log(this.state.detailList[0]);
+		var temp = this.state.detailList[0];
 		return(
 				<div id = "detail">
 					<header className = "detail_header">
@@ -60,7 +80,7 @@ class Detail extends Component{
 						<div className = "detail_footer_add">
 							<i className ="iconfont detail_footer_icon">&#xe501;</i>
 						</div>
-						<div className = "detail_footer_info">加入购物车</div>
+						<div className = "detail_footer_info" onClick={()=>{this.saveCart(temp.name,temp.imgUrl,temp.price)}}>加入购物车</div>
 					</footer>
 				</div>
 			)

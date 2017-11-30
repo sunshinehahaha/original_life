@@ -22,36 +22,43 @@ class MyUI extends Component{
 		return (
 			
 			<div className="my">
-				<h2>
+				<header className = "my_header">
 					<Link to="/">
 						<i className="iconfont">&#xe607;</i>
 					</Link>
 					<span id="storeSession" ref="storeMy">我的</span>
-					<span ref="storeMySession">{localStorage.getItem("username")}</span>
-					<span ref="zhuxiao" onClick={() => {this.props.delSession(this)}}>注销</span>
-				</h2>
+					<span  className = "my_main_user" ref="storeMySession">{localStorage.getItem("username")}</span>
+				</header>
 
+				<main className = "my_main">
+					<div className = "my_main_pic">
+						<div className = "my_main_cir">
+							<i className ="iconfont my_main_icon">&#xe502;</i>
+						</div>
+					</div>
 
-
-
-				<NavLink activeClassName="active"  className="loginRe" to={`${this.props.match.url}/login`}>
-				 	登录
-			    </NavLink>
-
-			    <NavLink activeClassName="active" className="loginRe" ref="haha" to={`${this.props.match.url}/regist`}>
-			 		<span ref="zhuce">注册</span>
-			 		
-			    </NavLink>
-
-
-
-
-
+					<div className = "my_main_relo">
+						<NavLink activeClassName="active"  className="loginRe" to={`${this.props.match.url}/login`}>
+						 	登录
+					    </NavLink>
+					    <NavLink activeClassName="active" className="loginRe" ref="haha" to={`${this.props.match.url}/regist`}>
+					 		<span ref="zhuce">注册</span>
+					    </NavLink>
+					</div>
 					
+					<div className = "my_main_detail">
+						
+					</div>
+
+					<div className = "my_main_out">
+						<span ref="zhuxiao" onClick={() => {this.props.delSession(this)}}>注销</span>
+					</div>
+
+				</main>
+
+				
 				<div className="loginRegist">
-					
 					<LoginRoute {...this.props}></LoginRoute>
-
 				</div>
 			</div>
 			
