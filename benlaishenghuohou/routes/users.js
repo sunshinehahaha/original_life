@@ -4,6 +4,7 @@ var fs = require('fs');
 var UserModel = require('../model/UserModel');
 var GoodsModel = require('../model/GoodsModel');
 var CartModel = require('../model/CartModel');
+var indexModel = require('../model/indexModel');
 /* GET users listing. */
 
 router.get('/', function(req, res, next) {
@@ -225,4 +226,58 @@ router.post('/save/goods', function(req, res, next) {
 
 
 
+<<<<<<< HEAD
+router.post('/save/imgUrl', function(req, res, next) {
+		var result = {
+			code:1
+		}
+		var img = new indexModel();
+		img.imgUrl = req.body.imgUrl;
+
+		img.save((err)=>{
+			if(err){
+				result.code = -22;
+				result.message = '保存失败，服务器出错';
+			}
+			// result.username = req.body.username;
+			res.send(JSON.stringify(result));
+		})	
+});
+
+router.post('/api/showImg',(req,res,next)=>{
+	var result ={
+		code : 1,
+		lunbo:[],
+		datu:[],
+		xiaotu:[],
+		ban:[],
+		last:[]
+	}
+	indexModel.find({},(error,docs)=>{
+		if(error || docs.length === 0){
+			result.code = -100;
+			result.message = "服务器错误";
+			res.send(JSON.stringify(result));
+		}
+		console.log(docs);
+		for(var i=0;i<docs.length;i++){
+			if(i<=3){
+				result.lunbo.push(docs[i]);
+			}else if(i===4){
+				result.datu.push(docs[i]);
+			}else if(i>4&&i<=12){
+				result.xiaotu.push(docs[i]);
+			}else if(i>=13&&i<=16){
+				result.ban.push(docs[i]);
+			}else{
+				result.last.push(docs[i]);
+			}
+		}
+		// result.data = docs;
+		res.send(JSON.stringify(result));
+	})
+});
+
+=======
+>>>>>>> e28f43812f9f0b746a50ba9f22c6b6c1d4b0df08
 module.exports = router;

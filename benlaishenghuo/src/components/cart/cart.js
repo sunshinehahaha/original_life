@@ -13,6 +13,9 @@ import {
 export default class Cart extends Component{
 	constructor(){
 		super();
+		this.state = {
+			cartList:[]
+		}
 	}
 	componentDidMount(){
 		this.showCart();
@@ -20,13 +23,23 @@ export default class Cart extends Component{
 	showCart(){
 		console.log("showCart");
 		console.log(this);
+		var that = this;
 		axios.get('/api/showCart')
 		.then((res)=>{
 			console.log(res);
+			console.log(res.data);
 			if(res.data.code!=1){
 				// alert(res.data.message);
-				this.props.history.push('/my');
+				that.props.history.push('/my');
+				return;
 			}
+			that.state.cartList = res.data.data;
+			that.setState({
+				cartList:that.state.cartList
+			})
+
+			console.log(that.state.cartList );
+
 		})
 	}
 	
@@ -41,20 +54,31 @@ export default class Cart extends Component{
 					<span>编辑</span>
 				</header>
 				<main className = "cart_main">
-					<ul>
-						<li className = "cart_choose"><input type = "checkbox" className = "cart_main_ipt"/></li>
-						<li className = "cart_pic">购物图片</li>
-						<li className = "cart_name">
-							<p className = "cart_name_name">物品名称</p>
-							<div className = "cart_name_mon">
-								<p className = "cart_name_onecost">单价</p>
-								<div className = "cart_cal">
-									<div>-</div>
-									<div>1</div>
-									<div>+</div>
+					<ul>{
+						this.state.cartList.map((item,index)=>{
+							return (
+								<div key={index}>
+									<li className = "cart_choose">
+										<input type = "checkbox" className = "cart_main_ipt"/>
+									</li>
+									<img src={item.imgUrl} className = "cart_pic"/>
+									<li className = "cart_name">
+										<p className = "cart_name_name"><span className="cart_font">商品名：</span>{item.name}</p>
+										<div className = "cart_name_mon">
+											<p className = "cart_name_onecost"><span className="cart_font">价格：</span>￥{item.price}</p>
+											<div className = "cart_cal">
+												<div>-</div>
+												<div>1</div>
+												<div>+</div>
+											</div>
+										</div>
+									</li>
 								</div>
-							</div>
-						</li>
+							)
+						})
+						
+					}
+					
 					</ul>
 				</main>
 				<footer className = "cart_footer">
