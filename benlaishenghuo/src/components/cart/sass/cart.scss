@@ -155,3 +155,12 @@
 .cart_font{
 	font-weight:bold;
 }
+
+
+.cart_main ul{
+	display:flex;
+	justify-content:sapce-between;
+	li{
+		display: inline-block;
+	}
+}

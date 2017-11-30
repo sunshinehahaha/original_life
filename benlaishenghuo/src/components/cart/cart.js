@@ -54,14 +54,14 @@ export default class Cart extends Component{
 					<span>编辑</span>
 				</header>
 				<main className = "cart_main">
-					<ul>{
+					{
 						this.state.cartList.map((item,index)=>{
 							return (
-								<div key={index}>
+								<ul key={index}>
 									<li className = "cart_choose">
 										<input type = "checkbox" className = "cart_main_ipt"/>
 									</li>
-									<img src={item.imgUrl} className = "cart_pic"/>
+									<li><img src={item.imgUrl} className = "cart_pic"/></li>
 									<li className = "cart_name">
 										<p className = "cart_name_name"><span className="cart_font">商品名：</span>{item.name}</p>
 										<div className = "cart_name_mon">
@@ -73,13 +73,13 @@ export default class Cart extends Component{
 											</div>
 										</div>
 									</li>
-								</div>
+								</ul>
 							)
 						})
 						
 					}
 					
-					</ul>
+					
 				</main>
 				<footer className = "cart_footer">
 					<input type = "checkbox" />
