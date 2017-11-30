@@ -25,6 +25,7 @@ class App extends Component {
         <div className="App">
               <Switch>
                 <Redirect  exact from="/" to="/home"/>
+                <Redirect exact from="/classify" to="/classify/storebaby"/>
                 <Route  path="/home" component={Home}/>
                 <Route  path="/classify" component={Classify}/>
                 <Route  path="/cart" component={Cart}/>

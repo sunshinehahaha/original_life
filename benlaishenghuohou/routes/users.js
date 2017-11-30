@@ -130,7 +130,13 @@ router.get('/api/showCart',function(req,res,next){
 	var result = {
 		code:1
 	}
-	CartModel.find({username:req.body.username,flag:1},(err,docs)=>{
+	if(!req.session.username){
+		result.code = -99;
+		result.message = "用户，还没登录哦~~";
+		res.send(JSON.stringify(result));
+		return;
+	}
+	CartModel.find({username:req.session.username,flag:1},(err,docs)=>{
 		if( err || docs.length == 0){
 			result.code = -110;
 			result.message = "服务器错误";
@@ -147,6 +153,12 @@ router.post('/api/saveCart', function(req, res, next) {
 	var result = {
 		code:1
 	}
+	if(!req.session.username){
+		result.code = -911;
+		result.message = "请先登录";
+		res.send(JSON.stringify(result));
+		return;
+	}
 	CartModel.find({name:req.body.name},(err,docs)=>{
 		if(err){
 			result.code = -20;
@@ -156,7 +168,7 @@ router.post('/api/saveCart', function(req, res, next) {
 		}
 		if(docs.length !=0){
 			result.code = -21;
-			result.message = '用户名已存在';
+			result.message = '商品已添加';
 			res.send(JSON.stringify(result));
 			return;
 		}
@@ -165,13 +177,13 @@ router.post('/api/saveCart', function(req, res, next) {
 		cart.imgUrl = req.body.imgUrl;
 		cart.name = req.body.name;
 		cart.price = req.body.price;
+		cart.username = req.session.username;
 
 		cart.save((err)=>{
 			if(err){
 				result.code = -22;
 				result.message = '保存失败，服务器出错';
 			}
-			// result.username = req.body.username;
 			res.send(JSON.stringify(result));
 		})	
 	})

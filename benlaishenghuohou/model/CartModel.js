@@ -6,6 +6,7 @@ var Goods = new Schema({
     name    : String,
     price   : Number,
     username: String,
+    num     : { type: Number, default: 1 },
     flag    : { type: Number, default: 1 },
     date    : { type: Date, default: Date.now }
 });

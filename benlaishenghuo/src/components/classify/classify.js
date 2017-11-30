@@ -63,7 +63,7 @@ class ClassifyUI extends Component{
 		            </div>
 					<div className="right">
 					
-							<Redirect exact from="/classify" to="/classify/storebaby"/>
+							
 							<Route  path="/classify/storebaby" component={Storebaby}/>
 							<Route  path="/classify/fruit" component={Fruit}/>
 							<Route  path="/classify/vegetables" component={Vegetables}/>
