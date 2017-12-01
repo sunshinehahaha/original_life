@@ -159,8 +159,12 @@
 
 .cart_main ul{
 	display:flex;
-	justify-content:sapce-between;
+	justify-content:space-between;
 	li{
 		display: inline-block;
 	}
 }
+
+// #total{
+// 	display:none;
+// }

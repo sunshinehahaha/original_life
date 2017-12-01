@@ -126,6 +126,19 @@ router.get('/api/del',function(req,res,next){
 	res.send(JSON.stringify(result));
 })
 
+router.post('/api/delInfo',function(req,res,next){
+	var result ={
+		code:1
+	}
+	CartModel.update({_id:req.body.id},{flag:0},(err)=>{
+		if(err){
+			result.code = -110;
+			result.message = "删除失败";	
+		}
+		res.send(JSON.stringify(result));
+	})
+})
+
 router.get('/api/showCart',function(req,res,next){
 	var result = {
 		code:1
@@ -166,12 +179,12 @@ router.post('/api/saveCart', function(req, res, next) {
 			res.send(JSON.stringify(result));
 			return;
 		}
-		if(docs.length !=0){
-			result.code = -21;
-			result.message = '商品已添加';
-			res.send(JSON.stringify(result));
-			return;
-		}
+		// if(docs.length !=0){
+		// 	result.code = -21;
+		// 	result.message = '商品已添加';
+		// 	res.send(JSON.stringify(result));
+		// 	return;
+		// }
 
 		var cart = new CartModel();
 		cart.imgUrl = req.body.imgUrl;
@@ -226,7 +239,11 @@ router.post('/save/goods', function(req, res, next) {
 
 
 
+<<<<<<< HEAD
 
+=======
+// <<<<<<< HEAD
+>>>>>>> b9cf0eace859a045ec7e78f169bffd4a45dc7de4
 router.post('/save/imgUrl', function(req, res, next) {
 		var result = {
 			code:1
@@ -277,5 +294,6 @@ router.post('/api/showImg',(req,res,next)=>{
 		res.send(JSON.stringify(result));
 	})
 });
+
 
 module.exports = router;
