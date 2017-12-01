@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import './sass/home.css';
 import axios from 'axios';
 import Header from '../others/header.js';
+import { Spin } from 'antd';
 import {
   BrowserRouter as Router,
   Route,
@@ -157,7 +158,9 @@ class Home extends Component{
 						
 					}
 					</div>
+					<Spin className="bottom" />
 				</main>
+
 			</div>
 		)
 	}

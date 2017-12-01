@@ -19,6 +19,7 @@ export default class Cart extends Component{
 		this.selectAll = this.selectAll.bind(this);
 		this.delInfo = this.delInfo.bind(this);
 		this.reduce = this.reduce.bind(this);
+		this.calcuTotalPrice = this.calcuTotalPrice.bind(this);
 		this.add = this.add.bind(this);
 	}
 	componentDidMount(){
@@ -44,33 +45,35 @@ export default class Cart extends Component{
 
 		})
 	}
-	
-	singleOne(e){
-		var totalPrice = parseFloat(document.querySelector('#total').innerHTML);
-		var temp = e.currentTarget.parentNode.nextSibling.nextSibling.lastChild.firstChild.lastChild;
-		var price = parseFloat(temp.innerHTML);
-		console.log(price);
-		// e.currentTarget.parentNode.nextSibling.nextSibling.lastChild.firstChild
+	calcuTotalPrice(){
+		var a = document.querySelectorAll('.cart_main_ipt');
+		document.querySelector('#total').innerHTML = 0;
+			for(var i=0;i<a.length;i++){
+				if(a[i].checked === true){
+					var totalPrice = parseFloat(document.querySelector('#total').innerHTML);
+					var curPrice = parseFloat(a[i].parentNode.nextSibling.nextSibling.lastChild.firstChild.lastChild.innerHTML);
+					var curNum = parseFloat(a[i].parentNode.nextSibling.nextSibling.lastChild.firstChild.nextSibling.firstChild.nextSibling.innerHTML);
+					var curTotalPrice = curPrice*curNum;
+					// 
+					totalPrice +=curTotalPrice;
+					console.log(curTotalPrice);
+					document.querySelector('#total').innerHTML=totalPrice;
+					console.log(totalPrice);		
+				}	
+		}				
+	}
 		
-		var totalNum = parseFloat(e.currentTarget.parentNode.nextSibling.nextSibling.lastChild.firstChild.nextSibling.firstChild.nextSibling.innerHTML);
-
-
-		// console.log(e.currentTarget.parentNode.nextSibling.nextSibling.lastChild.firstChild.nextSibling.firstChild.nextSibling.innerHTML)
-		if(e.currentTarget.checked === true){
-			totalPrice+=price*totalNum;
-			document.querySelector('#total').innerHTML = totalPrice;
-		}else{
-			totalPrice-=price*totalNum;
-			document.querySelector('#total').innerHTML = totalPrice;
-		}
-		console.log(totalPrice);
-
+			
+	singleOne(e){
+		
+		this.calcuTotalPrice();
 		var checkedCount = 0;
 		var arrSingle = document.querySelectorAll('.cart_main_ipt');
 		var allCount = arrSingle.length;
 		for(var i=0;i<arrSingle.length;i++){
 			if(arrSingle[i].checked === true){
-					checkedCount++;
+				checkedCount++;
+
 			}else{
 				checkedCount--;
 				if(checkedCount<0){
@@ -83,25 +86,14 @@ export default class Cart extends Component{
 	}
 	selectAll(){
 		var totalPrice = 0;
-		// var totalNum = parseFloat(e.currentTarget.parentNode.nextSibling.nextSibling.lastChild.firstChild.nextSibling.firstChild.nextSibling.innerHTML);
 		var temp = document.getElementById('allSelect').checked;
 		console.log(temp);
 		var arrSingle = document.querySelectorAll('.cart_main_ipt');
 		var allCount = arrSingle.length;
-
 		for(var i=0;i<arrSingle.length;i++){
-			if(temp===true){
-				var price = parseFloat(arrSingle[i].parentNode.nextSibling.nextSibling.lastChild.firstChild.lastChild.innerHTML);
-			    var totalNum = parseFloat(arrSingle[i].parentNode.nextSibling.nextSibling.lastChild.firstChild.nextSibling.firstChild.nextSibling.innerHTML);
-			    totalPrice +=price*totalNum;
-				document.querySelector('#total').innerHTML = totalPrice;
-			}else{
-				document.querySelector('#total').innerHTML = 0;
-			}
-			arrSingle[i].checked = temp;
-
-			
+			arrSingle[i].checked = temp;		
 		}
+		this.calcuTotalPrice();
 	
 	}
 	delInfo(id){
@@ -124,23 +116,13 @@ export default class Cart extends Component{
 			num=1;
 		}
 		e.currentTarget.nextSibling.innerHTML = num;
-		// console.log(num);
-		// console.log(this);
-		// this.singleOne();
-		// singleOne();
-		// var currentPrice = parseFloat(e.currentTarget.parentNode.previousSibling.lastChild.innerHTML)*num;
-		// document.querySelector("#total").innerHTML = currentPrice;
+		this.calcuTotalPrice();
 	}
 	add(e){
 		var num = parseFloat(e.currentTarget.previousSibling.innerHTML);
 		num++;
 		e.currentTarget.previousSibling.innerHTML = num;
-		// console.log(num);
-		// console.log(e);
-		// this.singleOne();
-		// singleOne();
-		// var currentPrice = parseFloat(e.currentTarget.parentNode.previousSibling.lastChild.innerHTML)*num;
-		// document.querySelector("#total").innerHTML = currentPrice;
+		this.calcuTotalPrice();
 	}
 	render (){
 		return (
