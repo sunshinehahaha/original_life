@@ -226,7 +226,7 @@ router.post('/save/goods', function(req, res, next) {
 
 
 
-<<<<<<< HEAD
+
 router.post('/save/imgUrl', function(req, res, next) {
 		var result = {
 			code:1
@@ -278,6 +278,4 @@ router.post('/api/showImg',(req,res,next)=>{
 	})
 });
 
-=======
->>>>>>> e28f43812f9f0b746a50ba9f22c6b6c1d4b0df08
 module.exports = router;

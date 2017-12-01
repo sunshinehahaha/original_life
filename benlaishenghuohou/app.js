@@ -14,7 +14,7 @@ var mongoose = require('mongoose');
 
 //可以通过更改端口号连接别人的数据库
 //localhost是连接自己的数据库
-mongoose.connect('mongodb://localhost/benlaishenghuo');
+mongoose.connect('mongodb://10.2.151.244/benlaishenghuo');
 
 var app = express();
 
