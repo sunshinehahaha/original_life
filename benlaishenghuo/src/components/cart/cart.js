@@ -73,7 +73,6 @@ export default class Cart extends Component{
 		for(var i=0;i<arrSingle.length;i++){
 			if(arrSingle[i].checked === true){
 				checkedCount++;
-
 			}else{
 				checkedCount--;
 				if(checkedCount<0){

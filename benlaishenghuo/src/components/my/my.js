@@ -19,6 +19,7 @@ class MyUI extends Component{
 		// this.props.changeStatus(this);
 	}
 	render (){
+
 		return (
 			
 			<div className="my">
@@ -55,7 +56,10 @@ class MyUI extends Component{
 
 				
 				<div className="loginRegist">
-					<LoginRoute {...this.props}></LoginRoute>
+				{
+					this.props.children
+					
+				}
 				</div>
 			</div>
 			
@@ -71,17 +75,20 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch)=>{
 	return {
-		
 		getSession:function(myThis){
 			console.log('getSession::run')
 			var that = this;
-				console.log(this);
+			console.log(this);
+			console.log(that);
+			console.log(myThis);
 			axios.get('/api/checkSession')
 			.then((res)=>{
 				console.log(res);
 				if(res.data.code!=1){
 					console.log(res.data.message);
 					that.history.push('/my/login');//跳转to do 
+					// that.children.props.children[0];
+					// myThis.props.children.props.children[0].props.path);
 					myThis.refs.storeMySession.style.display = "none";
 					myThis.refs.storeMy.style.display = "inline-block";
 					myThis.refs.zhuxiao.style.display = "none";
@@ -93,13 +100,7 @@ const mapDispatchToProps = (dispatch)=>{
 				myThis.refs.zhuxiao.style.display = "inline-block";
 				console.log("hahaah");
 				
-
-
 			})
-		},
-		changeStatus:function(props){
-			console.log('change::run');
-			
 		},
 		delSession:function(myThis){
 			var that = this;
@@ -110,7 +111,6 @@ const mapDispatchToProps = (dispatch)=>{
 				if(res.data.code!=1){
 					alert(res.data.message);
 					that.history.push('/my');
-
 					return;
 				}
 				localStorage.removeItem("username");

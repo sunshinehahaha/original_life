@@ -6,24 +6,7 @@ import {connect} from 'react-redux';
 class LoginUI extends Component{
 	constructor(){
 		super();
-		// this.login = this.login.bind(this);
 	}
-	// login(username,psw){
-	// 	console.log("login");
-	// 	// axios.post('/api/login',{
-	// 	// 	username:username,
-	// 	// 	psw:psw
-	// 	// })
-	// 	// .then((res)=>{
-	// 	// 	console.log(res);
-	// 	// 	if(res.data.code!=1){
-	// 	// 		alert("登录失败");
-	// 	// 		return;
-	// 	// 	}
-	// 	// 	alert("登录成功");
-	// 	// 	this.props.history.push('./my');
-	// 	// })
-	// }
 	render(){
 		return (
 			<div className="login">

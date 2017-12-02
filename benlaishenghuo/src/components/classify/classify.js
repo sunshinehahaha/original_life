@@ -31,17 +31,17 @@ class ClassifyUI extends Component{
 		            <div className="left">
 		          		<ul>
 		          			<li>
-		          				<NavLink to = "/classify/storebaby" activeClassName="activeClassify">
+		          				<NavLink to = {`${this.props.match.url}/storebaby`} activeClassName="activeClassify">
 		          					镇店之宝
 		          				</NavLink>
 		          			</li>
 			          		<li>
-		          				<NavLink to = "/classify/fruit" activeClassName="activeClassify">
+		          				<NavLink to ={`${this.props.match.url}/fruit`} activeClassName="activeClassify">
 		          					水果
 		          				</NavLink>
 		          			</li>
 		          			<li>
-		          				<NavLink to = "/classify/vegetables" activeClassName="activeClassify">
+		          				<NavLink to = {`${this.props.match.url}/vegetables`} activeClassName="activeClassify">
 		          					蔬菜
 		          				</NavLink>
 		          			</li>
@@ -62,11 +62,10 @@ class ClassifyUI extends Component{
 		          		</ul>
 		            </div>
 					<div className="right">
-					
-							
-							<Route  path="/classify/storebaby" component={Storebaby}/>
-							<Route  path="/classify/fruit" component={Fruit}/>
-							<Route  path="/classify/vegetables" component={Vegetables}/>
+					{
+						this.props.children
+					}
+						
 							
 					</div>
 

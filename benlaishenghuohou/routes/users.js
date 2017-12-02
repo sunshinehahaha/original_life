@@ -239,11 +239,6 @@ router.post('/save/goods', function(req, res, next) {
 
 
 
-<<<<<<< HEAD
-
-=======
-// <<<<<<< HEAD
->>>>>>> b9cf0eace859a045ec7e78f169bffd4a45dc7de4
 router.post('/save/imgUrl', function(req, res, next) {
 		var result = {
 			code:1

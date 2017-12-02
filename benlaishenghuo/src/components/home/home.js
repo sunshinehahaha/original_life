@@ -158,7 +158,7 @@ class Home extends Component{
 						
 					}
 					</div>
-					<Spin className="bottom" />
+				
 				</main>
 
 			</div>
