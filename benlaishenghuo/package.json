@@ -34,14 +34,6 @@
         "^/api": "/api"
       },
       "ws": true
-    },
-    "/home": {
-      "target": "http://m.benlai.com",
-      "changeOrigin": true,
-      "pathRewrite": {
-        "^/home": "/home"
-      },
-      "ws": true
     }
   }
 }

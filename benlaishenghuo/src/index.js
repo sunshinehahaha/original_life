@@ -9,11 +9,11 @@ import reducer from './reducers/index.js';
 import {Provider} from 'react-redux';
 const store=createStore(reducer,{});
  
-function renderPage(){
+// function renderPage(){
 	ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('root'));
-}
+// }
 
-renderPage();
-store.subscribe(renderPage);
+// renderPage();
+// store.subscribe(renderPage);
 
 registerServiceWorker();
